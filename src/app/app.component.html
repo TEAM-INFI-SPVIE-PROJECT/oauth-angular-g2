@@ -1,11 +1,40 @@
-@if ( isLoggedIn() ) {
 <div class="container">
-  <h1>Hi and welcome</h1>
-  <p>Name: {{ userInfo?.info?.name }}</p>
-  <p>E-Mail: {{ userInfo?.info?.email }}</p>
-  <div><img src="{{ userInfo?.info?.picture }}" alt="Photo de profile" /></div>
-  <div>
-    <button (click)="logOut()">Logout from google</button>
+  @if (isLoggedIn()) {
+  <section class="section-info">
+    <div class="section-info-txt">
+      <h2>
+        {{ userInfo?.info?.name }}
+      </h2>
+      <P>
+        Je suis <span>{{ userInfo?.info?.name }}</span> et je suis passionné par
+        l'informatique. Mon adresse e-mail est
+        <span>{{ userInfo?.info?.email }}</span
+        >.
+      </P>
+      <button class="btn btn-logout" (click)="logOut()">Quitter</button>
+    </div>
+    <div class="section-info-image">
+      <img [src]="userInfo?.info?.picture" alt="Phot" />
+    </div>
+  </section>
+  } @else {
+  <div class="container">
+    <app-header></app-header>
+    <section class="section-info">
+      <div class="section-info-txt">
+        <h2>Welecome</h2>
+        <P>
+          Bienvenue sur notre application ! Veuillez vous connecter afin de voir
+          votre profil.
+        </P>
+        <div>
+          <button class="btn" (click)="login()">Login</button>
+        </div>
+      </div>
+      <div class="section-info-image">
+        <img src="../assets/images/authLogo.jpg" alt="photo" />
+      </div>
+    </section>
   </div>
+  }
 </div>
-}

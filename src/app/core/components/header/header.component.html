@@ -1,0 +1,16 @@
+<header>
+  <div class="logo">
+    <img
+      class="logo-img"
+      src="../../../../assets/images/authLogo.jpg"
+      alt="logo"
+    />
+  </div>
+  <div>
+    @if (isLoggedIn()) {
+    <button class="btn btn-logout" (click)="logOut()">Logout</button>
+    }@else {
+    <button class="btn" (click)="login()">Login</button>
+    }
+  </div>
+</header>

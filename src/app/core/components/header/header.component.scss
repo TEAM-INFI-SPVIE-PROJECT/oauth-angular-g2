@@ -1,0 +1,35 @@
+$greenColor: #94d263;
+$blueColor: #5c9ad3;
+$whiteColor: #ffffff;
+$infoSectionColor: #f6f6f6;
+
+header {
+  width: 95%;
+  margin: auto;
+  background: $whiteColor;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 32px;
+
+  .logo {
+    display: flex;
+    .logo-img {
+      width: 130px;
+    }
+  }
+}
+
+.btn {
+  background: linear-gradient(to left, $greenColor, $blueColor);
+  color: $whiteColor;
+  border: none;
+  font-size: 1.3rem;
+  cursor: pointer;
+  padding: 1rem 2rem;
+  border-radius: 24px;
+  transition: transform 0.4s;
+  &:hover {
+    transform: scale(1.1);
+  }
+}

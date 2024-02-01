@@ -25,14 +25,28 @@ export class OauthService {
   ) {
     oAuthService.configure(environment.oAuthConfing);
 
-    // oAuthService.logoutUrl = 'https://www.google.com/accounts/Logout';
+    oAuthService.logoutUrl = 'https://www.google.com/accounts/Logout';
 
     oAuthService.loadDiscoveryDocument().then(() => {
       oAuthService.tryLoginImplicitFlow().then(() => {
         if (!oAuthService.hasValidAccessToken()) {
-          oAuthService.initLoginFlow();
+          // oAuthService.initLoginFlow();
         } else {
           oAuthService.loadUserProfile().then((userProfile: any) => {
+            this.userProfileSubject.next(userProfile as UserInfo);
+          });
+        }
+      });
+    });
+  }
+
+  login() {
+    this.oAuthService.loadDiscoveryDocument().then(() => {
+      this.oAuthService.tryLoginImplicitFlow().then(() => {
+        if (!this.oAuthService.hasValidAccessToken()) {
+          this.oAuthService.initLoginFlow();
+        } else {
+          this.oAuthService.loadUserProfile().then((userProfile: any) => {
             this.userProfileSubject.next(userProfile as UserInfo);
           });
         }

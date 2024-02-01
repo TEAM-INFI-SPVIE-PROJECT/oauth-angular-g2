@@ -4,7 +4,8 @@ const oAuthConfing: AuthConfig = {
   issuer: 'https://accounts.google.com',
   strictDiscoveryDocumentValidation: false,
   redirectUri: window.location.origin,
-  clientId: 'Add your client ID',
+  clientId:
+    '16317450381-7aeki2toahkuh8pgv2tmg93t84ds4pbn.apps.googleusercontent.com',
   scope: 'openid profile email https://www.googleapis.com/auth/gmail.readonly',
 };
 
