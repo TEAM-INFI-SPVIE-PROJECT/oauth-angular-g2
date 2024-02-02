@@ -5,13 +5,14 @@ import { RouterOutlet } from '@angular/router';
 import { lastValueFrom } from 'rxjs';
 
 import { OauthService, UserInfo } from './services/oauth.service';
+import { HeaderComponent } from './core/components/header/header.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
+  imports: [CommonModule, RouterOutlet, HeaderComponent],
 })
 export class AppComponent {
   title = 'oauth-angular-g2';
@@ -32,18 +33,9 @@ export class AppComponent {
     this.oAuthService.logOut();
   }
 
-  // async getEmails() {
-  //   if (!this.userInfo) {
-  //     return;
-  //   }
+  login() {
+    console.log('benthe...');
 
-  //   const userId = this.userInfo?.info.sub as string;
-  //   const messages = await lastValueFrom(this.oAuthService.emails(userId));
-  //   messages.messages.forEach((element: any) => {
-  //     const mail = lastValueFrom(this.oAuthService.getMail(userId, element.id));
-  //     mail.then((mail) => {
-  //       this.mailSnippets.push(mail.snippet);
-  //     });
-  //   });
-  // }
+    this.oAuthService.login();
+  }
 }
